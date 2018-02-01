@@ -1,3 +1,4 @@
+/*Level-1 mongo assignment.
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/mydb";
 console.log(process.env.PORT);
@@ -78,3 +79,14 @@ function displayCollection(dbName,collection){
     });
     
 }
+*/
+//Level-3 Class Assign
+var mongo = function(db) {
+	db.myMonsters.find({"stats.attack": {"$lt": 10}});
+	db.myMonsters.find({"Level": {"$gt": 5, "$lte": 15}});
+	db.myMonsters.find({"attacks": {"$ne": "bite"}});
+	db.myMonsters.find({"Level": {"$lt": 6}},{"name": true, "Level": true, "health": true});
+	db.myMonsters.find({"stats.attack": {"$gte": 10, "$lte": 20}},{"health": false, "style": false});
+	db.myMonsters.find().count();
+	db.myMonsters.find().sort({"Level": -1});
+};
